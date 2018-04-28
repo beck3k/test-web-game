@@ -55,7 +55,7 @@ $(window).on('DOMContentLoaded', () => {
   };
 
   var scene = createScene();
-  scene.debugLayer.show();
+  // scene.debugLayer.show();
   engine.runRenderLoop(() => {
     scene.render();
   });
@@ -63,5 +63,15 @@ $(window).on('DOMContentLoaded', () => {
   $(window).on('resize', () => {
     engine.resize();
   });
-  $('body').append('<script id="test_script">console.log("test1")</script>');
+
+  $('#run').click(function(){
+    $('#test_script').remove();
+    $('body').append('<script id="test_script">' + $('textarea').val() + '</script>');
+  });
+
+  var oldLog = console.log;
+  console.log = function (message) {
+      $('#log').val($('#log').val() + message + "\n");
+      oldLog.apply(console, arguments);
+  };
 });

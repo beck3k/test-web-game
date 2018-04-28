@@ -4,9 +4,15 @@
     <link href="css/game.css" rel="stylesheet" />
   </head>
   <body>
-    <canvas id="canvas"></canvas>
-    <textarea id="script"></textarea>
-    <!-- atom://teletype/portal/26f67275-5205-4e36-be0c-fc925287efb1 -->
+    <div class="display-wrapper">
+      <canvas id="canvas"></canvas>
+      <div class="sidebar">
+        <h1>Code Editor</h1>
+        <textarea id="script">//Code Here</textarea>
+        <span id="run">Run Snippet</span>
+        <textarea id="log"></textarea>
+      </div>
+    </div>
     <script src="js/babylon.custom.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
